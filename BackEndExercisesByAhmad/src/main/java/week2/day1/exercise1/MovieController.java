@@ -28,10 +28,10 @@ public class MovieController {
         int page = 2;
 
         // Call the getPopularMovies method with the Authorization header and page number
-        List<Movie> popularMovies = getPopularMovies(authToken, page); // Example 1
-        List<Movie> popularMovies2 = getPopularMovies2(authToken, page); // Example 2
+        List<Movie> popularMovies = getPopularMovies(authToken, page); // Example 1: LocalDate as a LocalDate
+        List<Movie1> popularMovies2 = getPopularMovies2(authToken, page); // Example 2: LocalDate as a String
 
-        for (Movie m : popularMovies2) {
+        for (Movie1 m : popularMovies2) {
             System.out.println(m);
         }
 
@@ -127,6 +127,7 @@ public class MovieController {
         try {
             JsonObject jsonResponse = gson.fromJson(response, JsonObject.class);
             JsonArray results = jsonResponse.getAsJsonArray("results");
+            System.out.println(results);
 
             for (JsonElement element : results) {
                 JsonObject result = element.getAsJsonObject();
@@ -150,11 +151,11 @@ public class MovieController {
         return movieList;
     }
 
-    public static List<Movie> getPopularMovies2(String authorizationHeader, int page) {
+    public static List<Movie1> getPopularMovies2(String authorizationHeader, int page) {
         String response = getConnection("https://api.themoviedb.org/3/movie/popular?language=en-US&page=" + page, authorizationHeader);
 
         Gson gson = new Gson();
-        List<Movie> movieList = new ArrayList<>();
+        List<Movie1> movieList = new ArrayList<>();
 
         try {
             JsonObject jsonResponse = gson.fromJson(response, JsonObject.class);
@@ -162,7 +163,7 @@ public class MovieController {
 
             for (JsonElement element : results) {
                 JsonObject result = element.getAsJsonObject();
-                Movie movie = gson.fromJson(result, Movie.class);
+                Movie1 movie = gson.fromJson(result, Movie1.class);
                 movieList.add(movie);
             }
 

@@ -11,7 +11,7 @@ public class Movie {
     private String originalTitle;
     private String description;
     private String mediaType;
-    private String releaseDate;
+    private LocalDate releaseDate;
     private double rating;
 
     public Movie(boolean forAdults, int id, String title, String originalLanguage, String originalTitle, String description, String mediaType, String releaseDate, double rating) {
@@ -22,8 +22,7 @@ public class Movie {
         this.originalTitle = originalTitle;
         this.description = description;
         this.mediaType = mediaType;
-        //this.releaseDate = LocalDate.parse(releaseDate);
-        this.releaseDate = (releaseDate);
+        this.releaseDate = LocalDate.parse(releaseDate);
         this.rating = rating;
     }
 
@@ -59,7 +58,7 @@ public class Movie {
         return rating;
     }
 
-    public String getReleaseDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 

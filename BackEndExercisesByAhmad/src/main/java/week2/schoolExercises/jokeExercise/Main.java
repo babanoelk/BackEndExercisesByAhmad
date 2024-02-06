@@ -26,17 +26,11 @@ public class Main {
         System.out.println("Joke: " + jokeObject1.getJoke());
         System.out.println("Status: " + jokeObject1.getStatus());
 
-        Joke joke = parseJsonToJoke2();
-        System.out.println(joke.getJoke());
+        for (int i = 0; i < 10; i++){
+            Joke j = parseJsonToJoke2();
+            System.out.println(j.getJoke());
+        }
 
-        Joke joke1 = parseJsonToJoke2();
-        System.out.println(joke1.getJoke());
-
-        Joke joke2 = parseJsonToJoke2();
-        System.out.println(joke2.getJoke());
-
-        Joke joke3 = parseJsonToJoke2();
-        System.out.println(joke3.getJoke());
     }
 
     private static Joke parseJsonToJoke(String json) {
