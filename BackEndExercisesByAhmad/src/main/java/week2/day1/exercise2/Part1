@@ -1,0 +1,60 @@
+    What does JSON stand for?
+JSON stands for JavaScript Object Notation
+
+    What is the difference between JSON and XML?
+JSON (JavaScript Object Notation) and XML (eXtensible Markup Language) are both popular formats for structuring and transmitting data, but they have several key differences:
+
+Syntax:
+JSON: Uses a more lightweight and easily readable syntax. Data is represented as key-value pairs, arrays, and objects using braces {}, brackets [], and colons : respectively.
+XML: Utilizes tags and attributes to define the structure of the data. Each piece of data is enclosed within opening and closing tags, and attributes provide additional information within the tags.
+Readability:
+
+JSON: Tends to be more human-readable due to its simpler syntax. It is often easier to understand and work with, especially for developers familiar with JavaScript-like syntax.
+XML: Can be more verbose and complex, particularly for larger datasets. While it is still human-readable, the markup-heavy nature of XML can make it more challenging to parse and manipulate.
+Parsing:
+
+JSON: Generally parsed faster than XML due to its simpler structure. This can result in better performance, especially in web applications where data needs to be processed quickly.
+XML: Parsing XML documents can be more resource-intensive, particularly for large files or documents with complex structures. However, XML parsers are widely available and mature.
+Data Types:
+
+JSON: Supports a limited set of data types, including strings, numbers, booleans, arrays, objects, and null values. This simplicity can make JSON easier to work with for certain use cases.
+XML: Does not have built-in data types and relies on text-based representations for data. This can lead to more flexibility in defining custom data structures but may require additional validation and parsing logic.
+Usage:
+
+JSON: Commonly used for data interchange between web servers and clients, configuration files, API responses, and storing structured data. It is widely used in web development, particularly in JavaScript-based applications.
+XML: Historically used in various domains, including web services, document storage, configuration files, and data exchange formats. While its usage has declined in some areas due to the rise of JSON and other alternatives, XML is still prevalent in certain industries and legacy systems.
+
+    For what is JSON generally used for?
+Data Interchange: JSON is widely used for exchanging data between a server and a client in web development. It serves as a lightweight and easy-to-parse format for transmitting structured data over the network.
+
+API Responses: Many web services and APIs (Application Programming Interfaces) use JSON as the format for their responses. This allows developers to easily consume and process the data returned by the API in their applications.
+
+Configuration Files: JSON is often used for storing configuration settings in applications and systems. Its simple syntax makes it easy to define key-value pairs and nested structures, making it suitable for representing various types of configuration data.
+
+Storing Data: JSON can be used as a format for storing structured data in files or databases. Its lightweight nature and support for nested structures make it a flexible choice for storing and organizing data in a readable format.
+
+Serialization: In programming languages, JSON is commonly used for serializing objects into a string representation and deserializing them back into objects. This allows data to be easily converted into a format that can be transmitted over the network or stored in a file.
+
+Cross-platform Communication: JSON is platform-independent and supported by many programming languages, making it a popular choice for communication between different systems and technologies. It enables interoperability between diverse software components running on different platforms.
+
+    Write down the 6 data types in JSON
+String: A sequence of characters enclosed within double quotation marks ("). Example: "Hello, World!".
+
+Number: A numeric value, which can be an integer or a floating-point number. Example: 42 or 3.14.
+
+Boolean: Represents a logical value, either true or false.
+
+Array: An ordered collection of values, enclosed within square brackets ([]). Elements in an array can be of any JSON data type, including other arrays (nested arrays). Example: [1, 2, 3].
+
+Object: A collection of key-value pairs, enclosed within curly braces ({}). Each key is a string, and each value can be of any JSON data type, including arrays or objects (nested objects). Example: {"name": "John", "age": 30}.
+
+null: Represents an empty value or absence of a value. It is written as the keyword null.
+
+    Write down the 4 JSON syntax rules
+Data is in key-value pairs: JSON data is organized into key-value pairs, where each key is a string enclosed in double quotation marks ("), followed by a colon (:), and then the corresponding value. Example: "name": "John".
+
+Data is separated by commas: Key-value pairs in JSON objects are separated by commas (,). Elements in JSON arrays are also separated by commas. Example: "name": "John", "age": 30.
+
+Objects are enclosed in curly braces: JSON objects are enclosed within curly braces ({}). They consist of a collection of key-value pairs. Example: { "name": "John", "age": 30 }.
+
+Arrays are enclosed in square brackets: JSON arrays are enclosed within square brackets ([]). They contain an ordered list of values, which can be of any JSON data type, including objects and arrays. Example: [1, 2, 3].
