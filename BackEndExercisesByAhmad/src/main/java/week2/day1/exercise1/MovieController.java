@@ -28,12 +28,14 @@ public class MovieController {
         int page = 2;
 
         // Call the getPopularMovies method with the Authorization header and page number
-        List<Movie> popularMovies = getPopularMovies(authToken, page); // Example 1: LocalDate as a LocalDate
-        List<Movie1> popularMovies2 = getPopularMovies2(authToken, page); // Example 2: LocalDate as a String
+        List<Movie> popularMovies = getPopularMovies(authToken, page); // Example 1: Release date as a LocalDate
+        List<Movie1> popularMovies2 = getPopularMovies2(authToken, page); // Example 2: Release date as a String
 
         for (Movie1 m : popularMovies2) {
             System.out.println(m);
         }
+
+        findMovieById("tt1375666");
 
         /*
         getByRating that can take an MPAA rating or similar as a parameter and
@@ -70,11 +72,8 @@ public class MovieController {
         for (Movie m : sortedByReleaseDate) {
             System.out.println("Title: " + m.getTitle() + " Release date: " + m.getReleaseDate());
         }
-
         // Make a generic interface for the class, so it can be used for Books, Games, etc. as well.
         // My generic interface is called Media.
-
-
     }
 
     public static String findMovieById(String imdbId) {
@@ -82,6 +81,7 @@ public class MovieController {
         String authToken = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYTllMjQyNTU4ZTU5MzY1N2U4ZTc1MmFmOTlmMGVmZiIsInN1YiI6IjY1YzExZDk4YmYwOWQxMDE4NGE3ZGIyMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.p1IpNHp8XDPS2hebgUtgs1j5jtwB8Z22Q0t_Vt8Ctt0";
         String url = BASE_URL + "/find/" + imdbId + "?external_source=imdb_id";
         String jsonResponse = getConnection(url, authToken);
+        System.out.println("!!!" + jsonResponse);
 
         // Parse the JSON response
         JsonElement jsonElement = JsonParser.parseString(jsonResponse);
@@ -127,8 +127,6 @@ public class MovieController {
         try {
             JsonObject jsonResponse = gson.fromJson(response, JsonObject.class);
             JsonArray results = jsonResponse.getAsJsonArray("results");
-            System.out.println(results);
-
             for (JsonElement element : results) {
                 JsonObject result = element.getAsJsonObject();
                 int id = result.get("id").getAsInt();
@@ -140,7 +138,6 @@ public class MovieController {
                 String releaseDate = result.get("release_date").getAsString();
                 double rating = result.get("vote_average").getAsDouble();
                 String mediaType = "Movie";
-
                 Movie movie = new Movie(forAdults, id, title, language, originalTitle, description, mediaType, releaseDate, rating);
                 movieList.add(movie);
             }
