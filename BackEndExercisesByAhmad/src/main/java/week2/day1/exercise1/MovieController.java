@@ -29,7 +29,7 @@ public class MovieController {
 
         // Call the getPopularMovies method with the Authorization header and page number
         List<Movie> popularMovies = getPopularMovies(authToken, page); // Example 1
-        List<Movie> popularMovies2 = getPopularMovies2(authToken, page); // Example 2 (Doesn't work properly)
+        List<Movie> popularMovies2 = getPopularMovies2(authToken, page); // Example 2
 
         for (Movie m : popularMovies2) {
             System.out.println(m);
@@ -45,7 +45,7 @@ public class MovieController {
         List<Movie> sortedByMin = getMovieRatingByMin(popularMovies, 5.00);
         List<Movie> sortedByMax = getMovieRatingByMax(popularMovies, 10.00);
 
-
+        System.out.println();
         System.out.println("All movies sorted by rating: ");
         for (Movie m : sorted) {
             System.out.println("Title: " + m.getTitle() + " Rating: " + m.getRating());
